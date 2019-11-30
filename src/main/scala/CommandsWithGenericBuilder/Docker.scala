@@ -12,13 +12,6 @@ case class image(image: Option[String] = None) extends DockerOption
 
 case class volume() extends DockerOption
 
-//case class UserName(uname: String) extends ManOption
-//
-//case class password(pwd: String) extends ManOption
-//
-//case class Port(p: String) extends ManOption
-
-
 class DockerCommand(s: String = "docker") extends CommandBuilder[Docker]  {
   override def command(a: => Docker): CommandBuilder[Docker] = ???
 

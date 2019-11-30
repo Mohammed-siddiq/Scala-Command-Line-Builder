@@ -42,7 +42,7 @@ object PManCommand {
   sealed trait Man
 
 
-  def apply(): PManCommand[Man.ForCommand] = new PManCommand[Man.ForCommand]()
+  def apply(): PManCommand[Man] = new PManCommand[Man]()
 
   object Man {
 

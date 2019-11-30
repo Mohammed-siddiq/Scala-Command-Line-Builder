@@ -1,13 +1,17 @@
 package executors
 
+import org.slf4j.LoggerFactory
+
 import scala.concurrent.Future
 import sys.process._
 
 class PLsCommand[Ls <: PLsCommand.Ls](c: String = "ls") {
 
+  val logger = LoggerFactory.getLogger(PLsCommand.getClass)
+
   import PLsCommand.Ls._
 
-  def fileName(page: String): PLsCommand[Ls with FileName] = new PLsCommand(c.concat(" ").concat(page))
+  def path(page: String): PLsCommand[Ls with FileName] = new PLsCommand(c.concat(" ").concat(page))
 
   // -a      Include directory entries whose names begin with a dot (.).
   def listAll(): PLsCommand[Ls with AllOption] = new PLsCommand(c.concat(" ").concat("-a"))
@@ -21,13 +25,11 @@ class PLsCommand[Ls <: PLsCommand.Ls](c: String = "ls") {
 
   def build(implicit ev: Ls <:< FinalCommand): CommandExecutor = {
 
-    lazy val result = c !!
+    //    lazy val result = c !!
 
-    print(result)
+    //    print(result)
 
     CommandExecutor(Seq(c))
-
-
 
   }
 }

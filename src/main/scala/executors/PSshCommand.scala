@@ -14,7 +14,7 @@ class PSshCommand[Ssh <: PSshCommand.Ssh](c: String = "ssh") {
   import PSshCommand.Ssh._
 
 
-  def UserName(uName: String): PSshCommand[Ssh with UserName] = new PSshCommand(c.concat("").concat(uName))
+  def UserName(uName: String): PSshCommand[Ssh with UserName] = new PSshCommand(c.concat(" ").concat(uName))
 
   // -h options : print help message for the command
   def Host(endpoint: String): PSshCommand[Ssh with Host] = new PSshCommand(c.concat(" ").concat(endpoint).concat(" ls "))
@@ -28,8 +28,8 @@ class PSshCommand[Ssh <: PSshCommand.Ssh](c: String = "ssh") {
 
   def build(implicit ev: Ssh <:< FinalCommand): CommandExecutor = {
 
-    println("Executing command : " , c)
-    println(c !!)
+//    println("Executing command : " , c)
+//    println(c !!)
     CommandExecutor(Seq(c))
   }
 }
@@ -43,7 +43,7 @@ object PSshCommand {
   sealed trait Ssh
 
 
-  def apply(): PSshCommand[Ssh.Host] = new PSshCommand[Ssh.Host]()
+  def apply(): PSshCommand[Ssh] = new PSshCommand[Ssh]()
 
   object Ssh {
 

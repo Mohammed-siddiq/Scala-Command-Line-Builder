@@ -2,7 +2,7 @@ package executors
 
 import sys.process._
 
-class PPsCommand[Ps <: PPsCommand.Ps](c: String = "man"){
+class PPsCommand[Ps <: PPsCommand.Ps](c: String = "man") {
 
   import PManCommand.Man._
 

@@ -11,19 +11,22 @@ class PcdCommand[Cd <: PcdCommand.Cd](c: String = "cd") {
 
   def build(implicit ev: Cd <:< FinalCommand): CommandExecutor = {
 
-    lazy val res = c !!
-//    println(c !!)
-//    CommandExecutor(c)
+    //    lazy val res = c !!
+    //    println(c !!)
+    //    CommandExecutor(c)
 
 
-    CommandExecutor(Seq(c))
+  CommandExecutor(Seq(c))
   }
 
 }
 
 
 object PcdCommand {
+
   sealed trait Cd
+
+  def apply(): PcdCommand[Cd] = new PcdCommand()
 
   object Cd {
 
