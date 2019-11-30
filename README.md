@@ -315,9 +315,9 @@ Tests:
 [info] All tests passed.
 ```
  
- Sample Run:
+Sample Run:
  
- ```
+```
 [main] INFO Drivers.BuilderSampleUsages$ - Building the Commands...
 [main] INFO Drivers.BuilderSampleUsages$ - LS src/main/scala/executors/PGrepCommand.scala -> 
  src/main/scala/executors/PGrepCommand.scala
@@ -448,8 +448,5 @@ OPTIONS
 32:     Options can be specified more than once.  If conflicting options are
 260:     fields that are displayed depend on the options that are set.  The pid
 326:     command.  To enable the -r option, use it after any -c mode options.
-
-   
-
 ```
 
