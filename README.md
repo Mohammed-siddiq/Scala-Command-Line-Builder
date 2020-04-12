@@ -1,4 +1,4 @@
-# Command Line Builder With Phanthom Types
+# Command Line Builder 
 
 In this project I have designed two simple frameworks to build and use shell commands.
 
